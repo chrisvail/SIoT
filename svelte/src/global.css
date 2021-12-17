@@ -1,0 +1,196 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: rgb(47, 60, 66);
+    --bg-darker: rgb(34, 43, 46);
+    --bg-light: rgb(255, 255, 255);
+    --bg-card: rgb(64, 88, 125); 
+    --accent: rgb(240, 158, 36);
+    --txt-light: rgb(218, 231, 238);
+    --txt-mid: rgb(105, 112, 116);
+    --txt-dark: rgb(0, 0, 0);
+    --gradient: rgb(206, 215, 220);
+    
+    --bg-dark-rgb: 47, 60, 66;
+    --bg-light-rgb: 256, 256, 256;
+    --bg-card-rgb: 64, 88, 125; 
+    --accent-rgb: 240, 158, 36;
+    --txt-light-rgb: 218, 231, 238;
+    --txt-dark-rgb: 0, 0, 0;
+    --gradient-rgb: 206, 215, 220;
+
+    --grid-cols: 12;
+    --grid-col-width: 80px;
+    --grid-gap: 20px;
+    --grid-width: 80em;
+    
+    --font-heavy: 700;
+    --font-light: 300;
+    --font-family: Roboto, sans-serif;
+
+    --border-radius: .25em;
+    --box-shadow: rgba(0,0,0,0.25) 4px 4px 12px;
+    
+    --bp-desktop: 78em;
+    --bp-phone: 40em;
+
+    --nav-width: 20em;
+
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 78em) {
+    :root {
+        --grid-cols: 8;
+        --grid-col-width: 80px
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: var(--nav-width) 1fr [content-start] repeat(var(--grid-cols), var(--grid-col-width)) [content-end] 1fr;
+    gap: var(--grid-gap);
+    justify-items: start;
+}
+.section-grid {
+    /* grid-column: content-start / content-end; */
+    display: grid;
+    grid-template-columns:var(--nav-width) 1fr [content-start] repeat(var(--grid-cols), var(--grid-col-width)) [content-end] 1fr;
+    gap: var(--grid-gap);
+    justify-items: start;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, p, a, label, figcaption, input, textarea {
+    /* font-family: var(--font-family); */
+    margin-bottom: .25rem;
+    color:var(--txt-dark);
+    grid-column: content-start / content-end;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 5.5em;
+    font-weight: var(--font-heavy);
+    line-height: 1;
+    margin-bottom: 0.25em;
+}
+
+h2 {
+    font-size: 2.5em;
+    font-weight: var(--font-heavy);
+    line-height: 1.1;
+}
+
+h3 {
+    font-size: 2.5em;
+    font-weight: var(--font-light);
+    line-height: 1.1;
+}
+
+h4 {
+    font-size: 1.75em;
+    font-weight: var(--font-heavy);
+    line-height: 1.1;
+}
+
+h5 {
+    font-size: 1.3em;
+    font-weight: var(--font-light);
+    line-height: 1.1;
+}
+
+p {
+    font-weight: var(--font-light);
+    line-height: 1.6;
+}
+
+button + button, a + button, button + a, a + a {
+    margin-left: var(--grid-gap)
+}
+
+hr {
+    border: 0px solid transparent;
+    margin: 2em 0;
+    grid-column: content-start / content-end;
+    width: 100%;
+}
+
+pre.wp-block-code {
+    font-family: "Roboto Mono", monospace;
+    color: var(--txt-light);
+    background-color: var(--bg-dark);
+    border-left: .5em solid var(--accent);
+    width: 100%;
+    padding: 1em 2em; 
+}
+
+code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+table {
+    width: 100%;
+    grid-column: content-start / content-end;
+    border-collapse: collapse;
+
+}
+
+td, th {
+    text-align: left;
+    padding: .5em 1.5em;
+    border: none;
+    min-width: 8em;
+}
+
+thead {
+    font-weight: var(--font-heavy);
+    border-bottom: 1px solid var(--bg-dark);
+}
+
+
+tr:nth-child(even) {
+    background-color: rgba(var(--bg-card-rgb), 10%);
+}
+
+
+.wp-block-button__link {
+    font-size: 1.25em;
+    font-weight: var(--font-heavy);
+    text-decoration: none;
+    min-width: max-content;
+
+    padding: 0.25em 1em;
+    max-height: 2em;
+
+    border: none;
+    outline: none;
+    border: 3px solid black;
+    border-radius: var(--border-radius);
+
+    cursor:pointer;
+    transition: transform 250ms ease;
+}
+
+.wp-block-button__link:hover, button:hover {
+    transform: scale(1.03);
+}
+
+.has-primary-color {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg-light)
+}
+
